@@ -13,6 +13,7 @@ numpy = "*"
 scipy = "*"
 pywin32 = "*"
 loguru = "*"
+pillow = "*"
 
 [requires]
 python_version = "3.7"
