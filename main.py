@@ -1,4 +1,5 @@
 import os
+import sys
 from psd_tools import PSDImage
 from loguru import logger
 from PIL import Image
@@ -51,7 +52,7 @@ def resizeImage(image):
 
 
 def procFile(dirName, fileName):
-    inputFilePath = dirName + '\\' + fileName
+    inputFilePath = dirName + os.path.sep + fileName
     outputFileName = os.path.splitext(fileName)[0] + OUTPUT_EXT
 
     try:
@@ -84,6 +85,7 @@ def procFile(dirName, fileName):
             logger.info('{0} -> raw not found'.format(inputFilePath))
     except:
         logger.error('{0} -> error'.format(inputFilePath))
+        logger.error('error info -> {0}'.format(sys.exc_info()[0]))
 
 
 if __name__ == "__main__":
